@@ -45,3 +45,14 @@ class ProcessMemoqTerminology:
             self.merge_terminology()
 
         self.terminology_merged.to_excel("tb_merged.xlsx", index=False)
+
+#new
+    def list_languages(self):
+        columns = self.terminology_merged.columns
+        languages = []
+
+        for column in columns:
+            language = column.split(".")[0]
+            if language not in languages:
+                languages.append(language)
+        return languages
